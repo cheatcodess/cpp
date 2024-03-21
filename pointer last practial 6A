@@ -1,0 +1,34 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class person{
+	public:
+		string name;
+		int age;
+		person(string name,int age){
+			this->name=name;
+			this->age=age;
+		}
+};
+person*findeldest(person*people,int size){
+ person*eldest=&people[0];
+ for(int i=1;i<size;i++){
+ 	if(people[i].age>eldest->age){
+ 		eldest=&people[i];
+	 }
+ }
+ return eldest;
+}
+int main(){
+	person people[]={
+	person("john",21),
+	person("jane",32)
+	
+	
+	};
+	int size=sizeof(people)/sizeof (people[0]);
+	person*eldest= findeldest(people,size);
+	
+	cout<<"the eldest person is:"<<eldest->name<<"with age"<<eldest->age<<endl;
+	return 0;
+}
